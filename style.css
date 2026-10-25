@@ -1,0 +1,76 @@
+
+/* DINOSAUR ANIMATION */
+.dino {
+  display: inline-block;
+  font-size: 82px;
+  position: relative;
+  cursor: pointer;
+  transform-origin: bottom center;
+  animation: dinoBounce 2s ease-in-out infinite;
+  transition: transform .3s;
+  filter: drop-shadow(0 7px 0 #b6cbaa);
+}
+
+.dino:hover {
+  animation: dinoJump .65s ease;
+}
+
+@keyframes dinoBounce {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes dinoJump {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  35% { transform: translateY(-35px) rotate(-10deg); }
+  70% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.dino-walk {
+  position: fixed;
+  bottom: 12px;
+  left: -100px;
+  z-index: 20;
+  font-size: 55px;
+  cursor: pointer;
+  animation: walkAcross 13s linear infinite;
+  filter: drop-shadow(0 5px 0 #b6cbaa);
+}
+
+@keyframes walkAcross {
+  0% { left: -100px; transform: scaleX(1); }
+  48% { left: calc(100vw - 65px); transform: scaleX(1); }
+  50% { left: calc(100vw - 65px); transform: scaleX(-1); }
+  98% { left: -50px; transform: scaleX(-1); }
+  100% { left: -100px; transform: scaleX(1); }
+}
+
+.dino-pop {
+  animation: pop .45s ease !important;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35) rotate(12deg); }
+  100% { transform: scale(1); }
+}
+
+.floating-leaf {
+  position: fixed;
+  top: -30px;
+  z-index: 0;
+  pointer-events: none;
+  animation: leafFall 7s linear forwards;
+}
+
+@keyframes leafFall {
+  0% { transform: translateY(-20px) rotate(0); opacity: 0; }
+  10% { opacity: .8; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.dino-tip {
+  font-size: 10px;
+  color: #82967a;
+  margin-top: -3px;
+}
